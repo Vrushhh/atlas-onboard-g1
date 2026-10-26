@@ -214,9 +214,7 @@ node run_mvp.cjs
 python3 evaluate.py --target mvp_core --predictions reports/mvp-predictions.jsonl --output reports/mvp-regression.json
 ```
 
-**Current hosting:** the verified `dist/` files were uploaded directly to the Vercel project `atlas-onboard` on 27 October 2026. The public URL is https://atlas-onboard-six.vercel.app/. This deployment is not connected to GitHub auto-deployment; code pushes require a separate deployment until the repository is connected.
-
-For a future Git-connected Vercel deployment, import this repository, keep its root directory, use **Other** as the framework and the checked-in `vercel.json`: build `npm run build`, output `dist`. No environment secrets are needed. Only `dist` is served as the product; documentation and evaluation labels remain in the repository.
+**Current hosting:** https://atlas-onboard-six.vercel.app/ . Vercel project `atlas-onboard` is connected to this GitHub repository for automatic deployment. The repository uses `vercel.json` with build command `npm run build` and output directory `dist`. No API keys are needed for the current prototype. Only the app assets in `dist` are served; the documentation and evaluation files remain in the repository.
 
 ## Production readiness, security and responsible AI
 
