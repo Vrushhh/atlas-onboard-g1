@@ -1,0 +1,4 @@
+plant_id,asset_id,event_id,shift_id,timestamp_utc,product_family,TotalQty,GoodQty,RejectQty,RunSeconds,PlannedMin,CycleCount,Energy_kWh
+SYN-P12,SYN-LINE-A,SYN-E01,SYN-01,2026-10-20T08:00:00Z,SYN-Product-A,1000,900,100,0,0,400,84
+SYN-P12,SYN-LINE-A,SYN-E02,SYN-02,2026-10-20T16:00:00Z,SYN-Product-A,1000,950,50,24000,480,450,91
+SYN-P12,SYN-LINE-A,SYN-E03,SYN-03,2026-10-21T00:00:00Z,SYN-Product-A,1000,850,150,18000,480,350,79

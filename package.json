@@ -1,0 +1,15 @@
+{
+  "name": "atlas-onboard-mvp",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Atlas Onboard: evidence-backed plant reporting and human approval workflow for the G1 case submission",
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "build": "node --check dist/core.js && node --check dist/app.js",
+    "start": "python3 -m http.server 4321 --bind 127.0.0.1 --directory dist",
+    "package": "node scripts/package.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "scope": {
+    "plant_id": "SYN-P12",
+    "asset_id": "SYN-LINE-A",
+    "product_family": "SYN-Product-A"
+  },
+  "rows": [
+    {
+      "plant_id": "SYN-P12",
+      "asset_id": "SYN-LINE-A",
+      "event_id": "SYN-E01",
+      "shift_id": "SYN-01",
+      "timestamp_utc": "2026-10-20T08:00:00Z",
+      "product_family": "SYN-Product-A",
+      "TotalQty": "1000",
+      "GoodQty": "900",
+      "RejectQty": "100",
+      "RunSeconds": "21600",
+      "PlannedMin": "480",
+      "CycleCount": "400",
+      "Energy_kWh": "84"
+    },
+    {
+      "plant_id": "SYN-P12",
+      "asset_id": "SYN-LINE-A",
+      "event_id": "SYN-E02",
+      "shift_id": "SYN-02",
+      "timestamp_utc": "2026-10-20T16:00:00Z",
+      "product_family": "SYN-Product-A",
+      "TotalQty": "1000",
+      "GoodQty": "950",
+      "RejectQty": "50",
+      "RunSeconds": "24000",
+      "PlannedMin": "480",
+      "CycleCount": "450",
+      "Energy_kWh": "91"
+    },
+    {
+      "plant_id": "SYN-P12",
+      "asset_id": "SYN-LINE-A",
+      "event_id": "SYN-E03",
+      "shift_id": "SYN-03",
+      "timestamp_utc": "2026-10-21T00:00:00Z",
+      "product_family": "SYN-Product-A",
+      "TotalQty": "1000",
+      "GoodQty": "850",
+      "RejectQty": "150",
+      "RunSeconds": "18000",
+      "PlannedMin": "480",
+      "CycleCount": "350",
+      "Energy_kWh": "79"
+    }
+  ],
+  "readiness": {
+    "access": true,
+    "owners": true,
+    "contract": true
+  },
+  "owners": {
+    "integration": "Synthetic integration reviewer",
+    "steward": "Synthetic group reviewer",
+    "operations": "Synthetic operations reviewer"
+  },
+  "mapping_policy": "Apply only the supplied synthetic dictionary. Exclude CycleCount, source_timezone (if present) and Energy_kWh with the documented scope reason. All decisions reviewed for the base fixture. No approvals yet."
+}

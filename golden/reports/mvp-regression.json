@@ -1,0 +1,332 @@
+{
+  "evaluation_type": "synthetic_structured_contract_regression",
+  "cases": 35,
+  "families": 18,
+  "passed": 35,
+  "case_pass_rate": 1.0,
+  "critical_failures": 0,
+  "unexpected_ids": [],
+  "missing_ids": [],
+  "by_task": {
+    "validation": {
+      "total": 22,
+      "passed": 22
+    },
+    "kpi": {
+      "total": 7,
+      "passed": 7
+    },
+    "workflow": {
+      "total": 6,
+      "passed": 6
+    }
+  },
+  "by_risk": {
+    "high": {
+      "total": 29,
+      "passed": 29
+    },
+    "critical": {
+      "total": 6,
+      "passed": 6
+    }
+  },
+  "mapping": {
+    "total": 0,
+    "proposals": 0,
+    "correct_proposals": 0,
+    "unsafe_proposals": 0,
+    "expected_clarifications": 0,
+    "correct_clarifications": 0,
+    "proposal_precision": null,
+    "proposal_coverage": null,
+    "clarification_recall": null
+  },
+  "details": [
+    {
+      "id": "ATG-adbc33a1d058",
+      "family_id": "VAL-01",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-5aa9b7c98ff4",
+      "family_id": "VAL-01",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-d4556d15ef4d",
+      "family_id": "VAL-02",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-ff568e127cdd",
+      "family_id": "VAL-02",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-c852a87394dc",
+      "family_id": "VAL-03",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-4d9067469c97",
+      "family_id": "VAL-03",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-fb8d97503ed2",
+      "family_id": "VAL-04",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-f1fb40c3a2ab",
+      "family_id": "VAL-04",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-585af15c24fb",
+      "family_id": "VAL-05",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-74d758e55950",
+      "family_id": "VAL-05",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-3555e8a01732",
+      "family_id": "VAL-06",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-f93aa0e9d7f4",
+      "family_id": "VAL-06",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-66a00f1e7115",
+      "family_id": "VAL-07",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-bfaad1dbe5c5",
+      "family_id": "VAL-07",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-7770f37d7cf2",
+      "family_id": "VAL-08",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-050630fe1e8a",
+      "family_id": "VAL-08",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-767c2d5cf96e",
+      "family_id": "VAL-09",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-7aecd1d46e6a",
+      "family_id": "VAL-09",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-7dacef99381b",
+      "family_id": "VAL-10",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-03496ab7bd2f",
+      "family_id": "VAL-10",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-58d7ac84b332",
+      "family_id": "VAL-11",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-1505a25812b9",
+      "family_id": "VAL-11",
+      "task": "validation",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-dba94b0a79e0",
+      "family_id": "KPI-01",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-5dd80b240018",
+      "family_id": "KPI-01",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-d914431a9eb5",
+      "family_id": "KPI-02",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-a23b3b8537f3",
+      "family_id": "KPI-02",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-81111e498c35",
+      "family_id": "KPI-03",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-38b1b43481f9",
+      "family_id": "KPI-03",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-08edd09cf36f",
+      "family_id": "KPI-04",
+      "task": "kpi",
+      "risk": "high",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-a1c8d97ed760",
+      "family_id": "WOR-01",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-d024d0323be2",
+      "family_id": "WOR-01",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-223a6fd8b5d6",
+      "family_id": "WOR-02",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-f6661384b7ad",
+      "family_id": "WOR-02",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-943a119b31ae",
+      "family_id": "WOR-03",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "id": "ATG-e84a3297f519",
+      "family_id": "WOR-03",
+      "task": "workflow",
+      "risk": "critical",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "all_passed": true,
+  "limits": "Exact structured scoring does not establish semantic entailment, independent SME truth, unseen-plant performance or production readiness.",
+  "dataset_sha256": "181573233262638054825ae3c3d3547d6f5be6c1ac672048a71b401f3af8d008",
+  "split": "all",
+  "execution_target": "mvp_core"
+}

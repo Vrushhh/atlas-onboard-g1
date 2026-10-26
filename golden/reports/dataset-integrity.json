@@ -1,0 +1,13 @@
+{
+  "dataset_sha256": "181573233262638054825ae3c3d3547d6f5be6c1ac672048a71b401f3af8d008",
+  "cases": 80,
+  "families": 40,
+  "model_inputs": 80,
+  "schema_subset_checks": "passed",
+  "paired_output_schemas_equal": true,
+  "family_split_overlap": 0,
+  "all_14_validation_checks_exercised": true,
+  "verdict_metadata_absent_from_model_inputs": true,
+  "duplicate_ids_and_nonfinite_json_rejected": true,
+  "model_calls": 0
+}

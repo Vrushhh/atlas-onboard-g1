@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "rows": 60,
+  "split_counts": {
+    "development": 36,
+    "validation": 12,
+    "proposed_holdout": 12
+  },
+  "sha256_jsonl": "9e236ece60a927af9a9452ad3bd9cc960faf5b20b9842eb6bc96d153e45dfedf",
+  "real_plant_records": 0,
+  "model_evaluation_performed": false,
+  "SME_approved": false,
+  "scenario_groups": 30
+}

@@ -1,0 +1,8 @@
+{
+  "test_type": "evaluator_self_test_only",
+  "oracle_passes": 60,
+  "mutations_rejected": 60,
+  "unexpected_output_keys_rejected": true,
+  "model_calls": 0,
+  "production_model_evaluation": false
+}

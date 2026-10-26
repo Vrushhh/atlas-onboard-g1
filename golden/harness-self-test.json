@@ -1,0 +1,12 @@
+{
+  "evaluation_type": "evaluator_self_test_only",
+  "oracle_cases_passed": 80,
+  "unsafe_extra_output_mutations_rejected": 80,
+  "type_integer_null_numeric_and_evidence_checks": "passed",
+  "missing_and_unexpected_ids": "rejected",
+  "model_calls": 0,
+  "model_accuracy_measured": false,
+  "dataset_sha256": "181573233262638054825ae3c3d3547d6f5be6c1ac672048a71b401f3af8d008",
+  "split": "all",
+  "execution_target": "all"
+}

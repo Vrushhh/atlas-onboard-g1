@@ -1,0 +1,242 @@
+[
+  {
+    "id": "MAP-01",
+    "task": "mapping",
+    "title": "Accepted units need an explicit definition",
+    "split": "development"
+  },
+  {
+    "id": "MAP-02",
+    "task": "mapping",
+    "title": "Rejects and rework must be distinguished",
+    "split": "development"
+  },
+  {
+    "id": "MAP-03",
+    "task": "mapping",
+    "title": "Only supported duration units can be converted",
+    "split": "validation"
+  },
+  {
+    "id": "MAP-04",
+    "task": "mapping",
+    "title": "Hours require a supported transform",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "MAP-05",
+    "task": "mapping",
+    "title": "Cycles cannot substitute for output counts",
+    "split": "development"
+  },
+  {
+    "id": "MAP-06",
+    "task": "mapping",
+    "title": "Planned time needs the correct denominator",
+    "split": "development"
+  },
+  {
+    "id": "MAP-07",
+    "task": "mapping",
+    "title": "Counts must share a comparable population",
+    "split": "validation"
+  },
+  {
+    "id": "MAP-08",
+    "task": "mapping",
+    "title": "Conflicting definitions require adjudication",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "MAP-09",
+    "task": "mapping",
+    "title": "Out-of-scope measures stay out of the contract",
+    "split": "development"
+  },
+  {
+    "id": "MAP-10",
+    "task": "mapping",
+    "title": "Offset evidence and ambiguous local time differ",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "VAL-01",
+    "task": "validation",
+    "title": "Readiness requires access and named owners",
+    "split": "development"
+  },
+  {
+    "id": "VAL-02",
+    "task": "validation",
+    "title": "Source availability and explicit decisions are separate gates",
+    "split": "development"
+  },
+  {
+    "id": "VAL-03",
+    "task": "validation",
+    "title": "Required targets and supported targets are explicit",
+    "split": "validation"
+  },
+  {
+    "id": "VAL-04",
+    "task": "validation",
+    "title": "Evidence review and exclusions cannot be implicit",
+    "split": "development"
+  },
+  {
+    "id": "VAL-05",
+    "task": "validation",
+    "title": "Duration units must match the configured transform",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "VAL-06",
+    "task": "validation",
+    "title": "Safe counts apply to rows and aggregate totals",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "VAL-07",
+    "task": "validation",
+    "title": "Output reconciles row by row",
+    "split": "development"
+  },
+  {
+    "id": "VAL-08",
+    "task": "validation",
+    "title": "Availability needs valid planned production time",
+    "split": "validation"
+  },
+  {
+    "id": "VAL-09",
+    "task": "validation",
+    "title": "A report covers one agreed scope",
+    "split": "development"
+  },
+  {
+    "id": "VAL-10",
+    "task": "validation",
+    "title": "Unique records and unique shift grain are different",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "VAL-11",
+    "task": "validation",
+    "title": "Calendar validity and explicit offsets are required",
+    "split": "development"
+  },
+  {
+    "id": "KPI-01",
+    "task": "kpi",
+    "title": "Accepted totals change with the actual source",
+    "split": "development"
+  },
+  {
+    "id": "KPI-02",
+    "task": "kpi",
+    "title": "Availability is a ratio of duration sums",
+    "split": "validation"
+  },
+  {
+    "id": "KPI-03",
+    "task": "kpi",
+    "title": "Zero output and zero planned time have different outcomes",
+    "split": "development"
+  },
+  {
+    "id": "KPI-04",
+    "task": "kpi",
+    "title": "Availability cannot be presented as OEE",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "KPI-05",
+    "task": "kpi",
+    "title": "Benchmarks require a matching population and window",
+    "split": "development"
+  },
+  {
+    "id": "KPI-06",
+    "task": "kpi",
+    "title": "Business sensitivity is not verified ROI",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "WOR-01",
+    "task": "workflow",
+    "title": "Publication requires two current reviews",
+    "split": "development"
+  },
+  {
+    "id": "WOR-02",
+    "task": "workflow",
+    "title": "Changed evidence invalidates old acceptance",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "WOR-03",
+    "task": "workflow",
+    "title": "Source replacement preserves transactional behavior",
+    "split": "validation"
+  },
+  {
+    "id": "WOR-04",
+    "task": "workflow",
+    "title": "Template reuse requires fresh local evidence",
+    "split": "development"
+  },
+  {
+    "id": "WOR-05",
+    "task": "workflow",
+    "title": "An accepted scoped report is a distinct milestone",
+    "split": "development"
+  },
+  {
+    "id": "SEC-01",
+    "task": "security",
+    "title": "Authorization precedes retrieval",
+    "split": "development"
+  },
+  {
+    "id": "SEC-02",
+    "task": "security",
+    "title": "Embedded instructions never grant authority",
+    "split": "validation"
+  },
+  {
+    "id": "SEC-03",
+    "task": "security",
+    "title": "Machine and source writes are outside the tool boundary",
+    "split": "proposed_holdout"
+  },
+  {
+    "id": "SEC-04",
+    "task": "security",
+    "title": "A model is never an approval identity",
+    "split": "development"
+  },
+  {
+    "id": "SEC-05",
+    "task": "security",
+    "title": "Unknown authorization is a stop condition",
+    "split": "development"
+  },
+  {
+    "id": "RET-01",
+    "task": "retrieval",
+    "title": "Retrieval must respect plant scope",
+    "split": "development"
+  },
+  {
+    "id": "RET-02",
+    "task": "retrieval",
+    "title": "Superseded and unapproved documents cannot settle meaning",
+    "split": "validation"
+  },
+  {
+    "id": "RET-03",
+    "task": "retrieval",
+    "title": "Conflicting current evidence must remain visible",
+    "split": "proposed_holdout"
+  }
+]

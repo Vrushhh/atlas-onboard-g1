@@ -1,0 +1,8 @@
+source_id,locator,local_field,canonical_field,unit,definition,status
+SYN-DICT-01,row 1,TotalQty,total_units,count,Total units produced in the same shift and product population including good and scrap,synthetic
+SYN-DICT-01,row 2,GoodQty,good_units,count,Accepted output units included in TotalQty,synthetic
+SYN-DICT-01,row 3,RejectQty,scrap_units,count,Rejected output units included in TotalQty with no rework,synthetic
+SYN-DICT-01,row 4,RunSeconds,run_minutes,s,Actual running duration in seconds converted deterministically by division by 60,synthetic
+SYN-DICT-01,row 5,PlannedMin,planned_minutes,min,Planned production duration in minutes for the same shift,synthetic
+SYN-EXPORT-01,column F,CycleCount,,cycles,No verified pieces per cycle definition supplied,unresolved
+atlas-reporting-v1,scope,Energy_kWh,,kWh,Energy outside the MVP reporting scope,out_of_scope
