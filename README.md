@@ -92,6 +92,10 @@ The reviewed sample produces **3,000 total units, 300 scrap units, 10% scrap and
 
 Names and accountability in the demo are proposed roles, not confirmed Atlas organizational facts.
 
+## Interface behavior
+
+The navigation shell stays in place while pages update, with restrained content transitions, smoother dialogs and clearer hover, press and focus feedback. Keyboard focus survives readiness updates, and page changes are announced for assistive technology. Reduced-motion preferences disable animation. Operating values remain exact rather than counting through intermediate numbers.
+
 ## Technical implementation: what runs today
 
 The deployed product is a dependency-free **HTML/CSS/JavaScript application**. CSV parsing, validation, calculations and workflow state run in the browser. Persistence uses browser local storage; reports and workspaces can be exported.

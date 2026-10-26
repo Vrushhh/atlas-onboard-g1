@@ -12,7 +12,45 @@
   if(!st||st.version!==C.VERSION||!Array.isArray(st.plants)||!st.plants.length)st=C.initial();
   st.templates=st.templates||[];
   const ui={filter:'all',mappingFilter:'all',caseFilter:'all',activityScope:'all'};
-  let toastTimer;
+  let toastTimer,paintedView,paintedPlant;
+  const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function enterContent(content,navigating){
+    if(reduceMotion()||typeof content.animate!=='function')return;
+    [...content.children].filter(el=>!el.matches('.footer')).slice(0,8).forEach((el,i)=>el.animate([
+      {opacity:0,transform:`translateY(${navigating?10:4}px)`},
+      {opacity:1,transform:'translateY(0)'}
+    ],{duration:navigating?280:160,delay:navigating?Math.min(i*28,140):0,easing:'cubic-bezier(.2,.75,.25,1)',fill:'backwards'}));
+  }
+  function paint(markup,view){
+    const app=document.getElementById('app'),current=app.querySelector('.shell');
+    const navigating=paintedView!==view||paintedPlant!==st.selected;
+    const focused=document.activeElement;
+    const focusInfo=focused&&app.contains(focused)?{id:focused.id,action:focused.dataset.action,value:focused.dataset.value,ready:focused.dataset.readiness}:null;
+    if(!current){app.innerHTML=markup;}
+    else{
+      const template=document.createElement('template');template.innerHTML=markup;
+      const fresh=template.content;
+      current.querySelector('.content').replaceWith(fresh.querySelector('.content'));
+      current.querySelector('.breadcrumb').innerHTML=fresh.querySelector('.breadcrumb').innerHTML;
+      current.querySelector('#role-select').value=st.role;
+      current.querySelector('.top-avatar').textContent=fresh.querySelector('.top-avatar').textContent;
+      current.querySelectorAll('.nav button[data-nav]').forEach(button=>{
+        const target=fresh.querySelector(`.nav button[data-nav="${button.dataset.nav}"]`);
+        button.className=target.className;
+        if(target.hasAttribute('aria-current'))button.setAttribute('aria-current','page');else button.removeAttribute('aria-current');
+        const badge=button.querySelector('em'),nextBadge=target.querySelector('em');
+        if(nextBadge){if(badge)badge.textContent=nextBadge.textContent;else button.append(nextBadge.cloneNode(true));}else badge?.remove();
+      });
+    }
+    const content=app.querySelector('.content');content.id='workspace-content';content.tabIndex=-1;
+    if(focusInfo&&!focused.isConnected&&!navigating){
+      let replacement=focusInfo.id?document.getElementById(focusInfo.id):null;
+      if(!replacement&&(focusInfo.action||focusInfo.ready))replacement=[...content.querySelectorAll('button,input,select')].find(el=>focusInfo.action?el.dataset.action===focusInfo.action&&el.dataset.value===focusInfo.value:el.dataset.readiness===focusInfo.ready);
+      replacement?.focus({preventScroll:true});
+    }
+    if(navigating)document.getElementById('page-announcement').textContent=nav.find(n=>n[0]===view)?.[2]+' — '+p().name;
+    enterContent(content,navigating);paintedView=view;paintedPlant=st.selected;
+  }
   const paths={
     grid:'M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z',
     factory:'M3 21V10l6 3V7l6 3V3h5v18H3ZM6 17h1m4 0h1m4 0h1',
@@ -52,7 +90,8 @@
     const openCases=st.investigations.filter(c=>c.status!=='Resolved').length;
     const view=nav.find(n=>n[0]===st.view)?st.view:'overview';
     const pages={overview,setup,data:sourceData,mapping,validation,approvals,performance,investigations,activity};
-    document.getElementById('app').innerHTML=`<div class="shell"><aside class="sidebar"><div class="brand"><span class="brandmark">A</span><strong>atlas<span>onboard</span></strong></div><div class="workspace-label">Integration workspace</div><nav class="nav" aria-label="Workspace navigation">${nav.map(([id,ico,label],i)=>`${i===6?'<div class="navgroup">':''}<button data-nav="${id}" class="${view===id?'active':''}" ${view===id?'aria-current="page"':''}>${icon(ico)}${label}${id==='investigations'&&openCases?`<em>${openCases}</em>`:''}</button>${i===nav.length-1?'</div>':''}`).join('')}</nav><div class="side-note"><strong>${icon('layers')}Your first trusted report</strong>One clear path from local plant records to an accountable decision.<button data-action="guide">Explore the demo ${icon('arrow')}</button></div><div class="side-person"><span class="avatar">MC</span><div>Case study workspace<small>Synthetic demonstration</small></div><button class="iconbtn right" data-action="help" aria-label="About this MVP">${icon('help')}</button></div></aside><div class="main"><header class="topbar"><div class="breadcrumb">Workspace ${icon('chevron')}<b>${esc(nav.find(n=>n[0]===view)?.[2])}</b></div><div class="top-actions"><button class="ai-status" data-action="ai-info"><i></i> Prototype mode</button><label for="role-select">Demo role</label><select id="role-select" aria-label="Demo role">${['Integration lead','Data steward','Plant operations','Leadership'].map(r=>`<option ${r===st.role?'selected':''}>${r}</option>`).join('')}</select><div class="top-avatar">${st.role.split(' ').map(s=>s[0]).join('')}</div></div></header><main class="content">${storageWarning?'<div class="hint warn space">Browser storage is unavailable or full. This session still works; download a workspace export to retain changes.</div>':''}${pages[view]()}<footer class="footer"><span>ATLAS ONBOARD <span style="opacity:.4">/</span> MVP 02</span><span>Synthetic sample data · Browser-local state · Demo roles</span><button class="textbtn tiny" data-action="help">About this workspace ${icon('help')}</button></footer></main></div></div>`;
+    const markup=`<div class="shell"><aside class="sidebar"><div class="brand"><span class="brandmark">A</span><strong>atlas<span>onboard</span></strong></div><div class="workspace-label">Integration workspace</div><nav class="nav" aria-label="Workspace navigation">${nav.map(([id,ico,label],i)=>`${i===6?'<div class="navgroup">':''}<button data-nav="${id}" class="${view===id?'active':''}" ${view===id?'aria-current="page"':''}>${icon(ico)}${label}${id==='investigations'&&openCases?`<em>${openCases}</em>`:''}</button>${i===nav.length-1?'</div>':''}`).join('')}</nav><div class="side-note"><strong>${icon('layers')}Your first trusted report</strong>One clear path from local plant records to an accountable decision.<button data-action="guide">Explore the demo ${icon('arrow')}</button></div><div class="side-person"><span class="avatar">MC</span><div>Case study workspace<small>Synthetic demonstration</small></div><button class="iconbtn right" data-action="help" aria-label="About this MVP">${icon('help')}</button></div></aside><div class="main"><header class="topbar"><div class="breadcrumb">Workspace ${icon('chevron')}<b>${esc(nav.find(n=>n[0]===view)?.[2])}</b></div><div class="top-actions"><button class="ai-status" data-action="ai-info"><i></i> Prototype mode</button><label for="role-select">Demo role</label><select id="role-select" aria-label="Demo role">${['Integration lead','Data steward','Plant operations','Leadership'].map(r=>`<option ${r===st.role?'selected':''}>${r}</option>`).join('')}</select><div class="top-avatar">${st.role.split(' ').map(s=>s[0]).join('')}</div></div></header><main class="content">${storageWarning?'<div class="hint warn space">Browser storage is unavailable or full. This session still works; download a workspace export to retain changes.</div>':''}${pages[view]()}<footer class="footer"><span>ATLAS ONBOARD <span style="opacity:.4">/</span> MVP 02</span><span>Synthetic sample data · Browser-local state · Demo roles</span><button class="textbtn tiny" data-action="help">About this workspace ${icon('help')}</button></footer></main></div></div>`;
+    paint(markup,view);
     const zone=document.getElementById('dropzone');if(zone){['dragenter','dragover'].forEach(type=>zone.addEventListener(type,e=>{e.preventDefault();zone.classList.add('drag');}));['dragleave','drop'].forEach(type=>zone.addEventListener(type,e=>{e.preventDefault();zone.classList.remove('drag');}));zone.addEventListener('drop',e=>{if(e.dataTransfer.files[0])receiveFile(e.dataTransfer.files[0]);});}
   }
   function plantRows(){const list=st.plants.filter(x=>ui.filter==='all'||(ui.filter==='reporting'?!!x.report:!x.report));return list.map(x=>{const s=status(x),n=next(x);return `<tr data-plant-row data-search="${esc((x.name+' '+x.id).toLowerCase())}"><td><div class="plant-name"><span class="plant-symbol">${icon('factory')}</span><div><strong>${esc(x.name)}</strong><small>${esc(x.id)} · ${esc(x.line||'Scope pending')}</small></div></div></td><td>${pill(s[0],s[1])}</td><td><span class="progress-label">${progress(x)} / 5 milestones</span><div class="progress"><span style="width:${progress(x)*20}%"></span></div></td><td><span class="tiny muted">${esc(x.owners.integration||'Unassigned')}</span></td><td><button class="textbtn" data-action="open-plant" data-value="${esc(x.id)}">${x.report?'View report':'Continue'} ${icon('arrow')}</button></td></tr>`;}).join('');}
@@ -100,7 +139,7 @@
     `<div class="hint space">This is a browser-local activity record for the prototype. It is editable through browser storage and is not an enterprise audit service.</div><section class="panel"><div class="panel-head"><h2>Workspace history</h2><select id="activity-scope" class="select-plain" aria-label="Activity plant filter"><option value="all">All plants</option>${st.plants.map(x=>`<option value="${esc(x.id)}" ${ui.activityScope===x.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div><div class="table-scroll"><table><tr><th>WHEN</th><th>PLANT</th><th>ACTOR / DEMO ROLE</th><th>DECISION</th><th>DETAIL</th></tr>${items.map(a=>`<tr><td class="tiny no-wrap">${date(a.at)}<br><span class="muted">${time(a.at)}</span></td><td>${esc(a.plant)}</td><td>${esc(a.actor)}</td><td>${esc(a.action)}</td><td class="tiny muted">${esc(a.detail)}</td></tr>`).join('')||'<tr><td colspan="5">No activity for this plant.</td></tr>'}</table></div><div class="table-footer"><span>${items.length} recorded actions · latest 500 retained</span>${button('Reset demo','reset-demo',{cls:'secondary small',icon:'refresh'})}</div></section>`;}
 
   // Dialogs and event handlers are defined below. All user-supplied strings are escaped.
-  function modal(heading,body,footer=''){const d=document.getElementById('dialog');d.innerHTML=`<div class="dialog-head"><div><div class="eyebrow">ATLAS WORKSPACE</div><h2>${heading}</h2></div><button class="iconbtn" data-action="close-dialog" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${body}<div id="form-error" class="error-text" role="alert"></div></div>${footer?`<div class="dialog-footer">${footer}</div>`:''}`;if(!d.open)d.showModal();}
+  function modal(heading,body,footer=''){const d=document.getElementById('dialog');d.innerHTML=`<div class="dialog-head"><div><div class="eyebrow">ATLAS WORKSPACE</div><h2 id="dialog-title">${heading}</h2></div><button class="iconbtn" data-action="close-dialog" aria-label="Close dialog">${icon('close')}</button></div><div class="dialog-body">${body}<div id="form-error" class="error-text" role="alert"></div></div>${footer?`<div class="dialog-footer">${footer}</div>`:''}`;d.setAttribute('aria-labelledby','dialog-title');if(!d.open)d.showModal();}
   function close(){document.getElementById('dialog').close();}
   const cancel=()=>button('Cancel','close-dialog',{cls:'secondary'});
   const submit=label=>`<button type="submit" form="modal-form" class="btn">${label}</button>`;

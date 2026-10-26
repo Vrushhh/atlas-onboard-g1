@@ -34,3 +34,9 @@ The v2 golden set contains 80 synthetic author-labelled cases. Its 35 executable
 ## Production limits
 
 Role selection simulates handoffs; local persistence and activity records are editable. Real authentication, authorization, durable storage, immutable audit, enterprise connectors, monitoring, backup/restore and production acceptance remain future work. Browser workflow checks do not establish real ROI or operational outcomes.
+
+## UI interaction verification on 27 October 2026
+
+The navigation shell remains mounted while content changes. Browser checks verified navigation-button focus, readiness-checkbox focus after a state update, role selection, dialog opening/cancel/save, benchmark edits and unchanged approved-report metrics. Navigation uses short staggered content transitions; hover/press/focus feedback and native dialog transitions respect reduced-motion preferences. A skip link and page-change announcement support keyboard/screen-reader navigation.
+
+Responsive checks at requested 390 px and 820 px browser sizes found document scroll width equal to client width (375 px and 805 px respectively after the browser scrollbar). No warnings or errors appeared in the inspected browser log. The 24 core tests pass; the rules-engine source is byte-identical to the tested golden snapshot. These are UI and regression checks, not a production acceptance.

@@ -1,6 +1,6 @@
 {
   "name": "atlas-onboard-mvp",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Atlas Onboard: evidence-backed plant reporting and human approval workflow for the G1 case submission",
   "scripts": {
