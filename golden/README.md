@@ -6,6 +6,8 @@ This is an executable regression and proposed-policy evaluation set. It is not e
 
 ## What to open
 
+- [**Download the Excel workbook**](https://raw.githubusercontent.com/Vrushhh/atlas-onboard-g1/main/golden/Atlas-Onboard-Golden-Dataset.xlsx): all 80 cases, full inputs and expected answers, reviewer fields and the 35 recorded MVP outputs. The overview separates executed results from proposed-policy cases.
+
 - **golden.csv**: complete dataset, including inputs, expected structured answers and rationale. JSON fields remain JSON strings in CSV cells.
 - **review-sheet.csv**: concise case catalogue and blank review/adjudication columns for operations and stewardship reviewers.
 - **golden.jsonl**: canonical machine-readable dataset with task, family, split, risk, input, expected answer, rationale and output schema.
